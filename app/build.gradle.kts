@@ -5,12 +5,12 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
-    implementation("io.grpc:grpc-kotlin-stub:1.3.0")
+    implementation(libs.grpcKotlinStub)
 
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect")
+    runtimeOnly(libs.kotlinReflect)
 
     testImplementation(kotlin("test"))
-    testImplementation("io.grpc:grpc-testing:1.63.0")
+    testImplementation(libs.grpcTesting)
 }
 
 application {

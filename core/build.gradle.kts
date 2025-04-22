@@ -1,33 +1,29 @@
 plugins {
-    // Apply the shared build logic from a convention plugin.
-    // The shared code is located in `buildSrc/src/main/kotlin/kotlin-jvm.gradle.kts`.
     id("buildsrc.convention.kotlin-jvm")
-
-//    id("org.jetbrains.kotlin.jvm") version "1.9.0"
-    id("com.google.protobuf") version "0.9.4"
+    alias(libs.plugins.protobuf)
 }
 
 dependencies {
-    api("io.grpc:grpc-netty-shaded:1.63.0")
-    api("io.grpc:grpc-protobuf:1.63.0")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    api(libs.grpcNetty)
+    api(libs.grpcProtobuf)
+    api(libs.kotlinxCoroutines)
 
-    implementation("io.grpc:grpc-kotlin-stub:1.3.0")
-    implementation("io.grpc:grpc-stub:1.63.0")
+    implementation(libs.grpcKotlinStub)
+    implementation(libs.grpcStub)
 
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect")
+    runtimeOnly(libs.kotlinReflect)
 }
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.25.1"
+        artifact = libs.protoc.get().toString()
     }
     plugins {
         create("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.63.0"
+            artifact = libs.protocGenGrpcJava.get().toString()
         }
         create("grpckt") {
-            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.3.0:jdk8@jar"
+            artifact = "${libs.protocGenGrpcKotlin.get()}:jdk8@jar"
         }
     }
     generateProtoTasks {
