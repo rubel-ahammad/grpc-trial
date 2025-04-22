@@ -16,6 +16,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
     runtimeOnly("org.jetbrains.kotlin:kotlin-reflect")
+
+    testImplementation(kotlin("test"))
+    testImplementation("io.grpc:grpc-testing:1.63.0")
 }
 
 application {
