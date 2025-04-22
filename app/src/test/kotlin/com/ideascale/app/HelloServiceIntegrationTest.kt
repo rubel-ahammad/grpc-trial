@@ -8,8 +8,8 @@ import io.grpc.ManagedChannelBuilder
 import io.grpc.Server
 import io.grpc.ServerBuilder
 import kotlinx.coroutines.runBlocking
-import org.junit.After
-import org.junit.Before
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -34,7 +34,7 @@ class HelloServiceIntegrationTest {
         }
     }
 
-    @Before
+    @BeforeEach
     fun setup() {
         // Start the server with our mock service
         server = ServerBuilder.forPort(port)
@@ -49,7 +49,7 @@ class HelloServiceIntegrationTest {
             .build()
     }
 
-    @After
+    @AfterEach
     fun teardown() {
         // Shutdown the channel and server
         channel.shutdown()
