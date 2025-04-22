@@ -6,7 +6,7 @@ import io.grpc.ServerBuilder
 fun main() {
     val server: Server = ServerBuilder
         .forPort(50051)
-        .addService(HelloServiceImpl())
+        .addService(HelloServiceEndpoint())
         .build()
 
     server.start()
