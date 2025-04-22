@@ -8,11 +8,12 @@ plugins {
 }
 
 dependencies {
+    api("io.grpc:grpc-netty-shaded:1.63.0")
+    api("io.grpc:grpc-protobuf:1.63.0")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
     implementation("io.grpc:grpc-kotlin-stub:1.3.0")
-    implementation("io.grpc:grpc-netty-shaded:1.63.0")
-    implementation("io.grpc:grpc-protobuf:1.63.0")
     implementation("io.grpc:grpc-stub:1.63.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
     runtimeOnly("org.jetbrains.kotlin:kotlin-reflect")
 }

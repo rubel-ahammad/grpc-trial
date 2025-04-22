@@ -1,12 +1,8 @@
-# Version catalog is a central place for you to declare and version dependencies
-# https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
-# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
-
 [versions]
-kotlin = "2.1.20"
+kotlin = "1.9.20"
 kotlinxDatetime = "0.6.1"
 kotlinxSerializationJSON = "1.7.3"
-kotlinxCoroutines = "1.9.0"
+kotlinxCoroutines = "1.7.3"
 grpcProtobuf = "1.57.0"
 
 [libraries]
@@ -16,7 +12,6 @@ kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-j
 kotlinxCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 grpcProtobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpcProtobuf" }
 
-# Libraries can be bundled together for easier import
 [bundles]
 kotlinxEcosystem = ["kotlinxDatetime", "kotlinxSerialization", "kotlinxCoroutines"]
 
